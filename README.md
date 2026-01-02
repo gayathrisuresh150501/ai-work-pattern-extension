@@ -28,5 +28,8 @@ Browser Extension → AI Decision Service → Decision → Extension Notificatio
 2. Load extension in Chrome (Developer Mode)
 3. Simulate usage and observe reminders
 
-> This project prioritizes engineering judgment over feature completeness.
+## Design Philosophy
+- Prioritizes engineering judgment over feature completeness
+- Current scope: break reminders and post-work hour alerts
+- Extensible for future reminder types (hydration, screen-fatigue, etc.)
 
