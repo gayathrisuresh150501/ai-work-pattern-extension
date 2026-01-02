@@ -1,3 +1,8 @@
+import { collectSignals } from "./signalCollector.js";
+
+const signals = await collectSignals();
+console.log(signals);
+
 const ALARM = "DECISION_CYCLE";
 
 chrome.runtime.onInstalled.addListener(() => {
