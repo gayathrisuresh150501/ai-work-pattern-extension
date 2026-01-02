@@ -1,5 +1,5 @@
 import { describe, it, expect } from "bun:test";
-import { buildSummary } from "../aggregator.js";
+import { buildSummary } from "../extension/aggregator.js";
 
 describe("buildSummary", () => {
   it("builds correct summary", () => {

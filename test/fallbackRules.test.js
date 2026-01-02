@@ -1,5 +1,5 @@
 import { describe, it, expect } from "bun:test";
-import { fallbackDecision } from "../fallbackRules.js";
+import { fallbackDecision } from "../extension/fallbackRules.js";
 
 describe("fallbackDecision", () => {
   it("returns STOP_WORK after work hours", () => {
