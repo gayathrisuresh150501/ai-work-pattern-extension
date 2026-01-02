@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "AI Work Pattern Awareness",
+  "version": "0.1.0",
+  "description": "AI-assisted reminders for healthier work patterns",
+  "permissions": ["alarms", "idle", "notifications"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  }
+}
