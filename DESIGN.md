@@ -33,6 +33,25 @@ flowchart LR
     RS -->|Decision JSON| DH
     DH --> NT
 ```
+
+## Sequence Diagram
+```mermaid
+sequenceDiagram
+    participant User
+    participant Extension
+    participant AIService as AI Decision Service (Docker)
+
+    User->>Extension: Continuous browser usage
+    Extension->>Extension: Collect activity signals
+    Extension->>Extension: Aggregate signals
+    Extension->>AIService: POST /v1/analyze (summary)
+    AIService->>AIService: Validate request
+    AIService->>AIService: Infer decision
+    AIService-->>Extension: Decision response
+    Extension->>Extension: Handle decision
+    Extension-->>User: Browser notification
+```
+
 ### Architecture Overview
 Browser Extension
     → Signal collection
