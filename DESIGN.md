@@ -73,6 +73,20 @@ flowchart TB
     AI3 --> EXT4
 ```
 
+## Failure and Fallback Diagram
+```mermaid
+flowchart LR
+    EXT["Browser Extension"]
+    AI["AI Decision Service"]
+    FB["Rule-based Fallback"]
+    NT["Notification"]
+
+    EXT -->|Request| AI
+    AI -->|Success| NT
+    AI -. Failure .-> FB
+    FB --> NT
+```
+
 ### Architecture Overview
 Browser Extension
     → Signal collection
