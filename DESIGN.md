@@ -6,16 +6,43 @@
 - Replaceable AI decision logic
 - Extensible interfaces
 
-## Architecture Overview
+## High-Level Design (HLD)
+```mermaid
+flowchart LR
+    subgraph EXT["Browser Extension (Manifest v3)"]
+        SC["Signal Collection"]
+        AG["Signal Aggregation"]
+        API["AI Request Client"]
+        DH["Decision Handling"]
+        NT["Notification Display"]
+    end
+
+    subgraph AI["AI Decision Service (Docker)"]
+        VH["Request Validation"]
+        DE["Decision Engine"]
+        RL["Rule / AI Logic"]
+        RS["Structured Response"]
+    end
+
+    SC --> AG
+    AG --> API
+    API -->|HTTP JSON| VH
+    VH --> DE
+    DE --> RL
+    RL --> RS
+    RS -->|Decision JSON| DH
+    DH --> NT
+```
+### Architecture Overview
 Browser Extension
-  → Signal collection
-  → Aggregation
-  → AI request
-  → Notification
+    → Signal collection
+    → Aggregation
+    → AI request
+    → Notification
 
 AI Decision Service
-  → Decision inference
-  → Decision response
+    → Decision inference
+    → Decision response
 
 ## Key Design Decisions
 
@@ -38,3 +65,4 @@ If AI service is unavailable, rule-based logic ensures functionality.
 - Simplicity over completeness
 - Inference over learning
 - No persistent storage
+
