@@ -52,6 +52,27 @@ sequenceDiagram
     Extension-->>User: Browser notification
 ```
 
+## Logical Responsibility Diagram
+```mermaid
+flowchart TB
+    subgraph EXT["Browser Extension"]
+        EXT1["Collect activity signals"]
+        EXT2["Aggregate & rate-limit data"]
+        EXT3["Invoke AI service"]
+        EXT4["Handle AI decision"]
+        EXT5["Display notification"]
+    end
+
+    subgraph AI["AI Decision Service"]
+        AI1["Validate input"]
+        AI2["Apply rules / AI inference"]
+        AI3["Return structured decision"]
+    end
+
+    EXT3 --> AI1
+    AI3 --> EXT4
+```
+
 ### Architecture Overview
 Browser Extension
     → Signal collection
